@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-class ScreenWishList extends StatelessWidget {
-  const ScreenWishList({super.key});
+class ScreenCart extends StatelessWidget {
+  const ScreenCart({super.key});
 
   @override
   Widget build(BuildContext context) {
     return const Center(
-      child: Text('Screen WishList'),
+      child: Text('Screen Cart'),
     );
   }
 }

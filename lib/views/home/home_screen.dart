@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shoping_cart/view/detail/screen_details.dart';
+import 'package:shoping_cart/views/detail/screen_details.dart';
 import '../../utils/colors.dart';
 import '../../utils/constants.dart';
 
@@ -228,7 +228,7 @@ class ScreenHome extends StatelessWidget {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => ScreenDetail(),
+                            builder: (context) => const ScreenDetail(),
                           ));
                     },
                     child: Container(
@@ -238,6 +238,7 @@ class ScreenHome extends StatelessWidget {
                       child: Column(
                         children: [
                           height20,
+                          height10,
                           Container(
                             height: 200,
                             width: 150,
@@ -246,7 +247,7 @@ class ScreenHome extends StatelessWidget {
                               borderRadius: BorderRadius.circular(10),
                               image: const DecorationImage(
                                 image: NetworkImage(
-                                    "https://m.media-amazon.com/images/I/51uiOdEqoDL._AC_UY1100_.jpg"),
+                                    "https://photos6.spartoo.net/photos/177/17787739/17787739_500_A.jpg"),
                               ),
                             ),
                             child: const Padding(

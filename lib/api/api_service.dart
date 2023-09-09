@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:shoping_cart/model/product_model.dart';
+import 'package:shoping_cart/models/product_model.dart';
 import 'package:http/http.dart' as http;
 
 class ApiServices {
