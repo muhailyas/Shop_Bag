@@ -34,7 +34,9 @@ class TopRatedCardWidget extends StatelessWidget {
                 color: primaryWhite,
                 borderRadius: BorderRadius.circular(10),
                 image: DecorationImage(
-                  image: NetworkImage(product.image),
+                  image: NetworkImage(
+                    product.image,
+                  ),
                 ),
               ),
               child: const Padding(

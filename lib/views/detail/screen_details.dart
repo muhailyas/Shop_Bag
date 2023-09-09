@@ -4,8 +4,8 @@ import 'package:shoping_cart/models/product_model.dart';
 import 'package:shoping_cart/utils/colors.dart';
 import 'package:shoping_cart/utils/constants.dart';
 import 'package:shoping_cart/views/detail/widgets/top_bar/top_bar_widget.dart';
-
 import 'widgets/color_variant/color_variant.dart';
+import 'widgets/review_profile_widget/review_profile_widget.dart';
 
 class ScreenDetail extends StatelessWidget {
   const ScreenDetail({super.key, required this.product});
@@ -23,17 +23,23 @@ class ScreenDetail extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 height10,
+                // top bar widget
                 const TopBarWidget(),
                 height20,
+                // image container
                 imageContainer(image: product.image),
                 height20,
+                // title row
                 titleRow(title: product.title, prize: product.price),
-                height20,
+                height10,
+                ReviewProfileWidget(product: product),
+                height10,
                 const Text(
                   "Description",
                   style: TextStyle(fontSize: 19, fontWeight: FontWeight.w500),
                 ),
                 height10,
+
                 Text(
                   product.description,
                   maxLines: 7,
@@ -41,7 +47,7 @@ class ScreenDetail extends StatelessWidget {
                 ),
                 height30,
                 height10,
-                const ColorVariantWidget(),
+                ColorVariantWidget(),
                 height30,
                 height30,
                 addToCart()

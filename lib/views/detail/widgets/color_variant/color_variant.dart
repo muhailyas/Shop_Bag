@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:shoping_cart/controllers/category_card/category_card_bloc.dart';
 
 import '../../../../utils/colors.dart';
 import '../../../../utils/constants.dart';
 
 class ColorVariantWidget extends StatelessWidget {
-  const ColorVariantWidget({
+  ColorVariantWidget({
     super.key,
   });
-
+  final List<Color> items = [Colors.red, primaryWidgetColor, Colors.brown];
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -18,25 +21,45 @@ class ColorVariantWidget extends StatelessWidget {
               fontSize: 18, color: Colors.black, fontWeight: FontWeight.w500),
         ),
         width30,
-        const CircleAvatar(
-          radius: 20,
-          backgroundColor: Colors.black,
-          child: CircleAvatar(
-            radius: 10,
-            backgroundColor: primaryWhite,
+        Container(
+          height: 30.h,
+          width: 120.w,
+          child: ListView.separated(
+            itemCount: 3,
+            separatorBuilder: (context, index) => width10,
+            scrollDirection: Axis.horizontal,
+            shrinkWrap: true,
+            itemBuilder: (context, index) => CircleAvatar(
+              radius: 20,
+              backgroundColor: items[index],
+              child: BlocBuilder<CategoryCardBloc, CategoryCardState>(
+                builder: (context, state) {
+                  return InkWell(
+                    onTap: () {
+                      if (state.isSelectedIndex == index) {
+                        context
+                            .read<CategoryCardBloc>()
+                            .add(CategoryDeselected(index: index));
+                      } else {
+                        context
+                            .read<CategoryCardBloc>()
+                            .add(CategorySelected(index: index));
+                      }
+                    },
+                    child: CircleAvatar(
+                      radius: 10,
+                      backgroundColor: state.isSelectedIndex == index
+                          ? Colors.white
+                          : items[index],
+                    ),
+                  );
+                },
+              ),
+            ),
           ),
         ),
-        width20,
-        const CircleAvatar(
-          radius: 20,
-          backgroundColor: Colors.red,
-        ),
-        width20,
-        const CircleAvatar(
-          radius: 20,
-          backgroundColor: Colors.grey,
-        ),
         width30,
+        width10,
         width30,
         Container(
           height: 45,
