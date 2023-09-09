@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shoping_cart/utils/colors.dart';
-import '../../controllers/bloc/bottom_navigation_bloc.dart';
+
+import '../../controllers/bottom_nav/bottom_navigation_bloc.dart';
 
 class BottomNavigationWidget extends StatelessWidget {
   const BottomNavigationWidget({super.key});

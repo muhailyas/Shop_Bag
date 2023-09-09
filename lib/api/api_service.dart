@@ -4,6 +4,10 @@ import 'package:shoping_cart/models/product_model.dart';
 import 'package:http/http.dart' as http;
 
 class ApiServices {
+  ApiServices._();
+  static final ApiServices instance = ApiServices._();
+  factory ApiServices() => instance;
+
   static const getAllProductUrl = "https://fakestoreapi.com/products/";
   Future<List<Product>> getAllProduct() async {
     final response = await http.get(Uri.parse(getAllProductUrl));

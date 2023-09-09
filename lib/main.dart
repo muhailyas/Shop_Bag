@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shoping_cart/api/api_service.dart';
+import 'package:shoping_cart/controllers/product/product_bloc.dart';
 import 'package:shoping_cart/views/main_page/main_page.dart';
 
-import 'controllers/bloc/bottom_navigation_bloc.dart';
+import 'controllers/bottom_nav/bottom_navigation_bloc.dart';
 
 void main() {
   runApp(const ShoppingCart());
@@ -24,6 +25,9 @@ class ShoppingCart extends StatelessWidget {
             providers: [
               BlocProvider(
                 create: (context) => BottomNavigationBloc(),
+              ),
+              BlocProvider(
+                create: (context) => ProductBloc(),
               )
             ],
             child: MaterialApp(

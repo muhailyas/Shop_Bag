@@ -24,7 +24,7 @@ class Product {
         description: json['description'],
         category: json['category'],
         image: json['image'],
-        rating: json['rating']['rate'],
-        ratingCount: json['rating']['count']);
+        rating: json['rating']['rate'].toString(),
+        ratingCount: json['rating']['count'].toString());
   }
 }
