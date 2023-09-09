@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shoping_cart/view/detail/screen_details.dart';
 import '../../utils/colors.dart';
 import '../../utils/constants.dart';
 
@@ -222,8 +223,66 @@ class ScreenHome extends StatelessWidget {
                       childAspectRatio: 2 / 3.2,
                       mainAxisSpacing: 10,
                       crossAxisSpacing: 10),
-                  itemBuilder: (context, index) => Container(
-                    color: Colors.yellow,
+                  itemBuilder: (context, index) => InkWell(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ScreenDetail(),
+                          ));
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                          color: secondaryWhite,
+                          borderRadius: BorderRadius.circular(10)),
+                      child: Column(
+                        children: [
+                          height20,
+                          Container(
+                            height: 200,
+                            width: 150,
+                            decoration: BoxDecoration(
+                              color: primaryWhite,
+                              borderRadius: BorderRadius.circular(10),
+                              image: const DecorationImage(
+                                image: NetworkImage(
+                                    "https://m.media-amazon.com/images/I/51uiOdEqoDL._AC_UY1100_.jpg"),
+                              ),
+                            ),
+                            child: const Padding(
+                              padding: EdgeInsets.all(8.0),
+                              child: Align(
+                                alignment: Alignment.topRight,
+                                child: Icon(
+                                  Icons.favorite_rounded,
+                                  color: Colors.red,
+                                  size: 25,
+                                ),
+                              ),
+                            ),
+                          ),
+                          height10,
+                          const Text(
+                            "Calvin Klein T-Shirt",
+                            style: TextStyle(
+                                fontSize: 16, fontWeight: FontWeight.w500),
+                          ),
+                          height10,
+                          const Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text("Calvin Klein"),
+                              width20,
+                              Text(
+                                "\$59",
+                                style: TextStyle(
+                                    fontSize: 18, fontWeight: FontWeight.bold),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
                   ),
                 ),
               ),
