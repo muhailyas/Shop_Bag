@@ -18,3 +18,4 @@ const width30 = SizedBox(width: 30);
 // Lists
 
 List<Product> cartItems = [];
+List<Product> productList = [];

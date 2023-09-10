@@ -1,7 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:shoping_cart/models/product_model.dart';
 import 'package:shoping_cart/utils/constants.dart';
-
 part 'cart_event.dart';
 part 'cart_state.dart';
 

@@ -79,7 +79,7 @@ class ScreenHome extends StatelessWidget {
                 },
                 child: Row(
                   children: [
-                    Text(state.viewAll ? "View all" : "show less"),
+                    Text(state.viewAll ? "View More" : "View Less"),
                     const Icon(Icons.arrow_drop_down)
                   ],
                 ),

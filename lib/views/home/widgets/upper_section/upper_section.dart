@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:shoping_cart/api/api_service.dart';
 import '../../../../utils/colors.dart';
 import '../../../../utils/constants.dart';
 
@@ -55,13 +55,23 @@ class UpperSection extends StatelessWidget {
                               OutlineInputBorder(borderSide: BorderSide.none))),
                 ),
               ),
-              Container(
-                height: 70,
-                width: 70,
-                decoration: BoxDecoration(
-                    color: secondaryWhite,
-                    borderRadius: BorderRadius.circular(15)),
-                child: const Icon(Icons.tune_rounded),
+              InkWell(
+                onTap: () async {
+                  await ApiServices().addProduct(
+                      title: 'shirt',
+                      category: "men's clothing",
+                      description: 'description',
+                      image: 'https://image',
+                      price: '999');
+                },
+                child: Container(
+                  height: 70,
+                  width: 70,
+                  decoration: BoxDecoration(
+                      color: secondaryWhite,
+                      borderRadius: BorderRadius.circular(15)),
+                  child: const Icon(Icons.tune_rounded),
+                ),
               )
             ],
           ),

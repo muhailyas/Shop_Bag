@@ -65,8 +65,7 @@ class ScreenCart extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  state.cartList[index].title
-                                      .substring(0, 15),
+                                  state.cartList[index].title.substring(0, 15),
                                   style: const TextStyle(
                                       fontSize: 18,
                                       fontWeight: FontWeight.w400),
@@ -140,8 +139,8 @@ class ScreenCart extends StatelessWidget {
                                           borderRadius:
                                               BorderRadius.circular(10)),
                                       child: const Padding(
-                                        padding: EdgeInsets.symmetric(
-                                            horizontal: 5),
+                                        padding:
+                                            EdgeInsets.symmetric(horizontal: 5),
                                         child: Padding(
                                           padding: EdgeInsets.symmetric(
                                               horizontal: 5),
@@ -182,7 +181,7 @@ class ScreenCart extends StatelessWidget {
                       (previousValue, element) =>
                           previousValue +
                           (double.tryParse(element.price) ?? 0.0)) -
-                  10 -
+                  10 +
                   40;
               return state.cartList.isEmpty
                   ? const Column(
@@ -209,19 +208,17 @@ class ScreenCart extends StatelessWidget {
                             ),
                             height10,
                             Row(
-                              mainAxisAlignment:
-                                  MainAxisAlignment.spaceBetween,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text("Price (${state.cartList.length} item)"),
                                 Text(
                                   "₹${state.cartList.fold<double>(0.0, (previousValue, element) => previousValue + (double.tryParse(element.price) ?? 0.0))}",
-                                )
+                                ),
                               ],
                             ),
                             height10,
                             const Row(
-                              mainAxisAlignment:
-                                  MainAxisAlignment.spaceBetween,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text("Discount"),
                                 Text(
@@ -232,18 +229,13 @@ class ScreenCart extends StatelessWidget {
                             ),
                             height10,
                             const Row(
-                              mainAxisAlignment:
-                                  MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text("Delivery Charges"),
-                                Text("₹40")
-                              ],
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [Text("Delivery Charges"), Text("₹40")],
                             ),
                             height10,
                             const Divider(),
                             Row(
-                              mainAxisAlignment:
-                                  MainAxisAlignment.spaceBetween,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 const Text(
                                   "Total Amount",
@@ -261,8 +253,7 @@ class ScreenCart extends StatelessWidget {
                             ),
                             height20,
                             Row(
-                              mainAxisAlignment:
-                                  MainAxisAlignment.spaceBetween,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text(
                                   "You will save ₹10 on this order",
