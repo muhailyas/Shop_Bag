@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:shoping_cart/controllers/cart/cart_bloc.dart';
 import 'package:shoping_cart/models/product_model.dart';
 import 'package:shoping_cart/utils/colors.dart';
 import 'package:shoping_cart/utils/constants.dart';
@@ -67,41 +69,50 @@ class ScreenDetail extends StatelessWidget {
           Icons.favorite_border_rounded,
           size: 30,
         ),
-        Container(
-          width: 300,
-          height: 65,
-          decoration: BoxDecoration(
-            color: primaryWidgetColor,
-            borderRadius: BorderRadius.circular(10),
-          ),
-          child: const Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                "Add to cart",
-                style: TextStyle(
-                    fontSize: 18,
-                    color: primaryWhite,
-                    fontWeight: FontWeight.w500),
-              ),
-              width30,
-              width30,
-              CircleAvatar(
-                radius: 19,
-                backgroundColor: primaryWhite,
-                child: Icon(
-                  Icons.local_grocery_store_rounded,
+        BlocBuilder<CartBloc, CartState>(
+          builder: (context, state) {
+            return InkWell(
+              onTap: () {
+                context.read<CartBloc>().add(AddToCart(product: product));
+              },
+              child: Container(
+                width: 300,
+                height: 65,
+                decoration: BoxDecoration(
                   color: primaryWidgetColor,
+                  borderRadius: BorderRadius.circular(10),
                 ),
-              )
-            ],
-          ),
+                child: const Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Add to cart",
+                      style: TextStyle(
+                          fontSize: 18,
+                          color: primaryWhite,
+                          fontWeight: FontWeight.w500),
+                    ),
+                    width30,
+                    width30,
+                    CircleAvatar(
+                      radius: 19,
+                      backgroundColor: primaryWhite,
+                      child: Icon(
+                        Icons.local_grocery_store_rounded,
+                        color: primaryWidgetColor,
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            );
+          },
         )
       ],
     );
   }
 
-  Row titleRow({required String title, required num prize}) {
+  Row titleRow({required String title, required String prize}) {
     return Row(
       children: [
         Column(
@@ -121,7 +132,7 @@ class ScreenDetail extends StatelessWidget {
         ),
         const Spacer(),
         Text(
-          "\$$prize",
+          "₹$prize",
           style: const TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
         ),
         width10,
@@ -134,6 +145,7 @@ class ScreenDetail extends StatelessWidget {
       height: 400,
       width: double.infinity,
       decoration: BoxDecoration(
+        color: primaryWhite,
         borderRadius: BorderRadius.circular(10),
         image: DecorationImage(image: NetworkImage(image), fit: BoxFit.contain),
       ),

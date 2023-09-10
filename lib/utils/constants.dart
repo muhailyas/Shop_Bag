@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shoping_cart/models/product_model.dart';
 
 ValueNotifier<int> indexChangeNotifier = ValueNotifier(0);
 
@@ -13,3 +14,7 @@ const height30 = SizedBox(height: 30);
 const width10 = SizedBox(width: 10);
 const width20 = SizedBox(width: 20);
 const width30 = SizedBox(width: 30);
+
+// Lists
+
+List<Product> cartItems = [];

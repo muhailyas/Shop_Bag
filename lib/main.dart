@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shoping_cart/api/api_service.dart';
+import 'package:shoping_cart/controllers/cart/cart_bloc.dart';
 import 'package:shoping_cart/controllers/category_card/category_card_bloc.dart';
 import 'package:shoping_cart/controllers/product/product_bloc.dart';
 import 'package:shoping_cart/views/main_page/main_page.dart';
@@ -32,6 +33,9 @@ class ShoppingCart extends StatelessWidget {
               ),
               BlocProvider(
                 create: (context) => CategoryCardBloc(),
+              ),
+              BlocProvider(
+                create: (context) => CartBloc(),
               ),
             ],
             child: MaterialApp(

@@ -75,7 +75,7 @@ class TopRatedCardWidget extends StatelessWidget {
                 ),
                 width30,
                 Text(
-                  "\$${product.price}",
+                  "₹ ${product.price}",
                   style: const TextStyle(
                       fontSize: 18, fontWeight: FontWeight.bold),
                 ),
