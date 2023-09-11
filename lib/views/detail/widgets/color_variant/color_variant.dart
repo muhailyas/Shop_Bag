@@ -36,15 +36,9 @@ class ColorVariantWidget extends StatelessWidget {
                 builder: (context, state) {
                   return InkWell(
                     onTap: () {
-                      if (state.isSelectedIndex == index) {
-                        context
-                            .read<CategoryCardBloc>()
-                            .add(CategoryDeselected(index: index));
-                      } else {
-                        context
-                            .read<CategoryCardBloc>()
-                            .add(CategorySelected(index: index));
-                      }
+                      context
+                          .read<CategoryCardBloc>()
+                          .add(CategorySelected(index: index));
                     },
                     child: CircleAvatar(
                       radius: 10,

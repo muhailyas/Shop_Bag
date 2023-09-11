@@ -100,9 +100,9 @@ class ScreenCart extends StatelessWidget {
                                     InkWell(
                                       onTap: () {
                                         context.read<CartBloc>().add(
-                                            RemoveFromCart(
-                                                product:
-                                                    state.cartList[index]));
+                                            AddToCartAndRemove(
+                                                product: state.cartList[index],
+                                                add: false));
                                       },
                                       child: Container(
                                         height: 30,

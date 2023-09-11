@@ -6,14 +6,11 @@ part 'cart_state.dart';
 
 class CartBloc extends Bloc<CartEvent, CartState> {
   CartBloc() : super(CartInitial()) {
-    on<AddToCart>((event, emit) {
+    on<AddToCartAndRemove>((event, emit) {
       emit(CartState(cartList: cartItems, isFetching: true));
-      cartItems.add(event.product);
-      return emit(CartState(cartList: cartItems, isFetching: false));
-    });
-    on<RemoveFromCart>((event, emit) {
-      emit(CartState(cartList: cartItems, isFetching: true));
-      cartItems.remove(event.product);
+      event.add
+          ? cartItems.add(event.product)
+          : cartItems.remove(event.product);
       return emit(CartState(cartList: cartItems, isFetching: false));
     });
     on<GetAllCartItems>((event, emit) {

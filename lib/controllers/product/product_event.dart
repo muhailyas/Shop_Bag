@@ -4,6 +4,7 @@ class ProductEvent {}
 
 class GetAllProductsEvent extends ProductEvent {}
 
-class ViewAllEvent extends ProductEvent {}
-
-class ViewLessEvent extends ProductEvent {}
+class ViewAllButtonEvent extends ProductEvent {
+  final bool isView;
+  ViewAllButtonEvent({required this.isView});
+}

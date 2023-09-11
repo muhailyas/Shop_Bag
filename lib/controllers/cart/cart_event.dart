@@ -2,9 +2,10 @@ part of 'cart_bloc.dart';
 
 class CartEvent {}
 
-class AddToCart extends CartEvent {
+class AddToCartAndRemove extends CartEvent {
   final Product product;
-  AddToCart({required this.product});
+  final bool add;
+  AddToCartAndRemove({required this.product, required this.add});
 }
 
 class RemoveFromCart extends CartEvent {

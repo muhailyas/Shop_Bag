@@ -22,15 +22,9 @@ class CategoryCardWidget extends StatelessWidget {
             splashColor: Colors.transparent,
             splashFactory: NoSplash.splashFactory,
             onTap: () {
-              if (selected) {
-                context
-                    .read<CategoryCardBloc>()
-                    .add(CategoryDeselected(index: index));
-              } else {
-                context
-                    .read<CategoryCardBloc>()
-                    .add(CategorySelected(index: index));
-              }
+              context
+                  .read<CategoryCardBloc>()
+                  .add(CategorySelected(index: index));
             },
             child: Container(
               decoration: BoxDecoration(

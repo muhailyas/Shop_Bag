@@ -9,12 +9,10 @@ import 'widgets/upper_section/upper_section.dart';
 class ScreenHome extends StatelessWidget {
   ScreenHome({Key? key}) : super(key: key);
   final List<String> categoryList = [
-    "Levi's",
-    "Wrangler",
-    "Calvin Klein",
-    "Zara",
-    "Tommy Hilfiger",
-    "Allen Solly"
+    "Electronics",
+    "Jewelery",
+    "Men's clothing",
+    "Women's clothing",
   ];
   @override
   Widget build(BuildContext context) {
@@ -72,9 +70,13 @@ class ScreenHome extends StatelessWidget {
               return InkWell(
                 onTap: () {
                   if (state.viewAll) {
-                    context.read<ProductBloc>().add(ViewLessEvent());
+                    context
+                        .read<ProductBloc>()
+                        .add(ViewAllButtonEvent(isView: false));
                   } else {
-                    context.read<ProductBloc>().add(ViewAllEvent());
+                    context
+                        .read<ProductBloc>()
+                        .add(ViewAllButtonEvent(isView: true));
                   }
                 },
                 child: Row(
