@@ -68,12 +68,25 @@ class ScreenDetail extends StatelessWidget {
         const Icon(
           Icons.favorite_border_rounded,
           size: 30,
+          color: Colors.red,
         ),
         BlocBuilder<CartBloc, CartState>(
           builder: (context, state) {
             return InkWell(
               onTap: () {
                 context.read<CartBloc>().add(AddToCart(product: product));
+                ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                  backgroundColor: primaryWidgetColor,
+                  content: const Text('Successfully added to cart'),
+                  action: SnackBarAction(
+                    label: 'Undo',
+                    onPressed: () {
+                      context
+                          .read<CartBloc>()
+                          .add(RemoveFromCart(product: product));
+                    },
+                  ),
+                ));
               },
               child: Container(
                 width: 300,

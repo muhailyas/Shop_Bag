@@ -183,6 +183,10 @@ class ScreenCart extends StatelessWidget {
                           (double.tryParse(element.price) ?? 0.0)) -
                   10 +
                   40;
+              num totalProductAmount = state.cartList.fold<double>(
+                  0.0,
+                  (previousValue, element) =>
+                      previousValue + (double.tryParse(element.price) ?? 0.0));
               return state.cartList.isEmpty
                   ? const Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -212,7 +216,7 @@ class ScreenCart extends StatelessWidget {
                               children: [
                                 Text("Price (${state.cartList.length} item)"),
                                 Text(
-                                  "₹${state.cartList.fold<double>(0.0, (previousValue, element) => previousValue + (double.tryParse(element.price) ?? 0.0))}",
+                                  "₹${totalProductAmount.toStringAsFixed(2)}",
                                 ),
                               ],
                             ),
@@ -244,7 +248,7 @@ class ScreenCart extends StatelessWidget {
                                       fontSize: 15),
                                 ),
                                 Text(
-                                  "₹$totalAmount",
+                                  "₹${totalAmount.toStringAsFixed(2)}",
                                   style: const TextStyle(
                                       fontWeight: FontWeight.w500,
                                       fontSize: 15),
@@ -252,7 +256,7 @@ class ScreenCart extends StatelessWidget {
                               ],
                             ),
                             height20,
-                            Row(
+                            const Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text(

@@ -41,6 +41,8 @@ dependencies:
   flutter_bloc: ^8.1.3
   shimmer: ^3.0.0
   flutter_rating_bar: ^4.0.1
+  rive: ^0.11.16
+  bloc: ^8.1.2
 
 dev_dependencies:
   flutter_test:

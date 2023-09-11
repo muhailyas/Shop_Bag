@@ -1,4 +1,3 @@
-
 import 'package:bloc/bloc.dart';
 part 'bottom_navigation_event.dart';
 part 'bottom_navigation_state.dart';
