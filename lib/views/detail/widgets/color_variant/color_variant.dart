@@ -21,7 +21,7 @@ class ColorVariantWidget extends StatelessWidget {
               fontSize: 18, color: Colors.black, fontWeight: FontWeight.w500),
         ),
         width30,
-        Container(
+        SizedBox(
           height: 30.h,
           width: 120.w,
           child: ListView.separated(
